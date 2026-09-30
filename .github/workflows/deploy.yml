@@ -9,11 +9,14 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -40,3 +43,28 @@ jobs:
           body: "Automated build of the latest CV from LaTeX source."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Pages Folder
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          mkdir public
+          cp cv.pdf public/
+          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=cv.pdf" /></head><body><p><a href="cv.pdf">Redirecting to CV...</a></p></body></html>' > public/index.html
+
+      - name: Upload GitHub Pages artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy-pages:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
