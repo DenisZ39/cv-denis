@@ -1,0 +1,138 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Huge \scshape Denis Zămosteanu} \\ \vspace{1pt}
+    \small 0728 407 448 $|$ \href{mailto:zamosteanudenis567@gmail.com}{\underline{zamosteanudenis567@gmail.com}} $|$ 
+    \href{https://linkedin.com/in/denis-z\u{a}mosteanu}{\underline{linkedin.com/in/denis-zămosteanu}} $|$
+    \href{https://github.com/DenisZ39}{\underline{github.com/DenisZ39}} \\
+    \small Iași, Romania
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Alexandru Ioan Cuza University}{Iași, Romania}
+      {Bachelor of Science in Computer Science}{Sep. 2025 -- May 2028}
+      \resumeItemListStart
+        \resumeItem{\textbf{Relevant Coursework:} Data Structures, Object-Oriented Programming (OOP), Operating Systems, Algorithm Design}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Hermann Krauter}{Neuss, Germany}
+      {Administrative Assistant}{Jun. 2026 -- Sept. 2026}
+      \resumeItemListStart
+        \resumeItem{Processed and verified payroll and financial data with strict attention to detail, maintaining high accuracy in records.}
+        \resumeItem{Managed and optimized various administrative workflows within a professional office environment, improving team efficiency.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {FileOps \& ProcOps Tools}{}
+      {C/C++, POSIX API}{Apr. 2026 -- May 2026}
+      \resumeItemListStart
+        \resumeItem{Collaborated within a team to architect and develop a synchronized multi-process system from scratch, utilizing POSIX standards.}
+        \resumeItem{Implemented robust concurrent synchronization mechanisms and handled low-level interactions with the OS for seamless file and process management.}
+        \resumeItem{Applied strong algorithmic optimization to ensure minimal execution time and prevent memory leaks across multiple active processes.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Function Graph Plotter}{}
+      {C, Data Structures}{Dec. 2025 -- Jan. 2026}
+      \resumeItemListStart
+        \resumeItem{Developed a performant C application designed to parse mathematical functions and render their graphical representations dynamically.}
+        \resumeItem{Implemented custom algorithms for coordinate scaling, axis mapping, and pixel-by-pixel rendering to display complex function curves.}
+        \resumeItem{Utilized structural data types and highly optimized loops to process user inputs and compute mathematical values with minimal latency.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: C, C++, Java, Bash, R, HTML/CSS} \\
+     \textbf{Tools \& Frameworks}{: Linux, GitHub, POSIX API, VS Code, IntelliJ IDEA, RStudio, Excel} \\
+     \textbf{Languages (Spoken)}{: Romanian (Native), English (Upper-Intermediate, B2), German (Intermediate, A2)} \\
+    }}
+ \end{itemize}
+
+\end{document}

@@ -1,0 +1,40 @@
+name: Build and Release CV
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: cv.tex
+          compiler: pdflatex
+
+      - name: Upload PDF as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CV-Denis-Zamosteanu
+          path: cv.pdf
+
+      - name: Create Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: cv.pdf
+          tag_name: "latest"
+          name: "Latest CV"
+          body: "Automated build of the latest CV from LaTeX source."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
